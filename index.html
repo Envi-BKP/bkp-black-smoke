@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+    <style>
+        body, h1, h2, h3, h4, h5, h6  {
+          font-family: Kanit, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <main>
+    <center><h3>บันทึกผลการตรวจวัดควันดำรถบรรทุก</h3></center>
+
+    <div class="container">
+        <form method="post" accept-charset="UTF-8" autocomplete="off" name="BlackSmoke">
+            <label for="ทะเบียนรถ">ทะเบียนรถ</label>
+            <input class="input" type="text" name="ทะเบียนรถ" required autocomplete="off">
+
+            <label for="ผลการตรวจวัดควันดำ">ผลการตรวจวัดควันดำ (%)</label>
+            <input class="input" type="text" name="ผลการตรวจวัดควันดำ (%)" required autocomplete="off">
+            
+            <button class="button" type="submit" >บันทึกผล</button>
+            <p id="demo"></p>
+        </form>
+    </div>
+    </main>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwb-te6LKy8eDWg__j0dVr_jAMBMeHHUQ9z8K49wSRk3AM6ohHgpet3cKj9CwzrHIf-MQ/exec'
+        const form = document.forms['BlackSmoke']
+        
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => document.getElementById("demo").innerHTML = "<div class='alert alert-primary' role='alert'><b></b></div>", BlackSmoke.reset())
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+</body>
+</html>
+
+
