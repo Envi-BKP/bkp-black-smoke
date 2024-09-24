@@ -37,9 +37,13 @@
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => document.getElementById("demo").innerHTML = "<div class='alert alert-primary' role='alert'><b></b></div>", BlackSmoke.reset())
             .catch(error => console.error('Error!', error.message))
+            Swal.fire({
+                title: "บันทึกข้อมูลเรียบร้อยแล้ว",
+                icon: "success"
+        });
         })
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
 
