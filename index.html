@@ -36,7 +36,7 @@
           e.preventDefault();
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
-              document.getElementById("demo").innerHTML = "";
+              document.getElementById("demo").innerHTML = " ";
               form.reset();
               Swal.fire({
                 title: "บันทึกข้อมูลเรียบร้อยแล้ว",
