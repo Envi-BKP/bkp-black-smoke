@@ -29,21 +29,25 @@
     </main>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwb-te6LKy8eDWg__j0dVr_jAMBMeHHUQ9z8K49wSRk3AM6ohHgpet3cKj9CwzrHIf-MQ/exec'
-        const form = document.forms['BlackSmoke']
-        
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwb-te6LKy8eDWg__j0dVr_jAMBMeHHUQ9z8K49wSRk3AM6ohHgpet3cKj9CwzrHIf-MQ/exec';
+        const form = document.forms['BlackSmoke'];
+      
         form.addEventListener('submit', e => {
-          e.preventDefault()
+          e.preventDefault();
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => document.getElementById("demo").innerHTML = "<div class='alert alert-primary' role='alert'><b></b></div>", BlackSmoke.reset())
-            .catch(error => console.error('Error!', error.message))
-            Swal.fire({
+            .then(response => {
+              document.getElementById("demo").innerHTML = "";
+              form.reset();
+              Swal.fire({
                 title: "บันทึกข้อมูลเรียบร้อยแล้ว",
                 icon: "success"
+              });
+            })
+            .catch(error => console.error('Error!', error.message));
         });
-        })
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      
 </body>
 </html>
 
