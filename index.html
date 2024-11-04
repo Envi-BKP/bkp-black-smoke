@@ -29,37 +29,47 @@
     </main>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwb-te6LKy8eDWg__j0dVr_jAMBMeHHUQ9z8K49wSRk3AM6ohHgpet3cKj9CwzrHIf-MQ/exec';
-        const form = document.forms['BlackSmoke'];
-        
-        form.addEventListener('submit', e => {
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwb-te6LKy8eDWg__j0dVr_jAMBMeHHUQ9z8K49wSRk3AM6ohHgpet3cKj9CwzrHIf-MQ/exec';
+      const form = document.forms['BlackSmoke'];
+  
+      form.addEventListener('submit', e => {
           e.preventDefault();
-
+  
+          // แสดง SweetAlert "รอสักครู่"
           Swal.fire({
-            title: "รอสักครู่",
-            text: "กำลังบันทึกข้อมูล...",
-            allowOutsideClick: false, // ปิดการคลิกนอกเพื่อปิด
-            onBeforeOpen: () => {
-                Swal.showLoading();
-            }
-        });  
-
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-              // ลบข้อความใน demo ถ้ามีการใช้งานอยู่
-              document.getElementById("demo").innerHTML = "";
-              // รีเซ็ตฟอร์มเมื่อบันทึกข้อมูลเสร็จแล้ว
-              form.reset();
-              // แสดงการแจ้งเตือนสำเร็จด้วย Swal.fire
-              Swal.fire({
-                title: "บันทึกข้อมูลเรียบร้อยแล้ว",
-                icon: "success"
+              title: "รอสักครู่",
+              text: "กำลังบันทึกข้อมูล...",
+              allowOutsideClick: false, // ปิดการคลิกนอกเพื่อปิด
+              onBeforeOpen: () => {
+                  Swal.showLoading();
+              }
+          });
+  
+          fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+              .then(response => {
+                  // ลบข้อความใน demo ถ้ามีการใช้งานอยู่
+                  document.getElementById("demo").innerHTML = "";
+                  // รีเซ็ตฟอร์มเมื่อบันทึกข้อมูลเสร็จแล้ว
+                  form.reset();
+                  
+                  // ปิด SweetAlert "รอสักครู่"
+                  Swal.close();
+  
+                  // แสดงการแจ้งเตือนสำเร็จด้วย Swal.fire
+                  Swal.fire({
+                      title: "บันทึกข้อมูลเรียบร้อยแล้ว",
+                      icon: "success"
+                  });
+              })
+              .catch(error => {
+                  // ปิด SweetAlert "รอสักครู่" เมื่อเกิดข้อผิดพลาด
+                  Swal.close();
+                  console.error('Error!', error.message);
               });
-            })
-            .catch(error => console.error('Error!', error.message));
-        });
-      </script>
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
       
       
       
