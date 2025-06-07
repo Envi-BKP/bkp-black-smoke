@@ -46,11 +46,4 @@ label {
   display: block;
   margin-top: 15px;
 }
- /* Optional: ปรับขนาด select */
- .choices__inner {
-  max-height: 40px;
-}
-.choices__list--dropdown {
-  max-height: 200px; /* ปรับความสูง dropdown */
-  overflow-y: auto;
-}
+
