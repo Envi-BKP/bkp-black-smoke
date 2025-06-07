@@ -1,44 +1,40 @@
 html {
-    max-width: 400px;
-    margin: 0 auto;
+  max-width: 400px;
 }
 body {
-  font-family: Arial;
+font-family: Arial;
 }
 
 .input , select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
 }
 
 .button {
-  width: 100%;
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+width: 100%;
+background-color: #04AA6D;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
 }
 
 .button :hover {
-  background-color: #45a049;
+background-color: #45a049;
 }
 
 .container {
-  max-width: 480px;
-  width: 100%;
-  margin: 10px;
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+border-radius: 5px;
+background-color: #f2f2f2;
+padding: 20px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 h3{
   text-align: center;
@@ -49,4 +45,12 @@ label {
   font-weight: bold;
   display: block;
   margin-top: 15px;
+}
+ /* Optional: ปรับขนาด select */
+ .choices__inner {
+  max-height: 40px;
+}
+.choices__list--dropdown {
+  max-height: 200px; /* ปรับความสูง dropdown */
+  overflow-y: auto;
 }
