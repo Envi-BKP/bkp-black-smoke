@@ -32,7 +32,21 @@ body {
 }
 
 .container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
+  max-width: 480px;
+  width: 100%;
+  margin: 10px;
+  background: white;
+  border-radius: 12px;
   padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+h3{
+  text-align: center;
+  margin-bottom: 20px;
+  color: rgb(13, 86, 118);
+}
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
 }
